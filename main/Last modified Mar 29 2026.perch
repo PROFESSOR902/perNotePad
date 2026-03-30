@@ -1,0 +1,54 @@
+// # Last modified Mar/29/2026/ 11:02
+
+commentsPlugin = {import:comments-plugin}
+
+
+// This is used for browser tab title, social media sharing 'card', search engines, community generator listing, etc.  
+$meta 
+  title = perNotePad
+  description = Template
+  //image = 
+  header
+    //mode = minimal
+    background = light-dark(lightblue, #003e84)
+
+
+
+
+
+
+
+// <div class="toolbar" style="padding-top:30px;" >
+//     <strong>ID:</strong> <span id="noteId"></span> 
+//     <button onclick="saveToSupabase()">💾 Save</button>
+//     <button onclick="loadFromSupabase()">🔁 Load</button>
+//   </div>
+//   <hr>
+
+
+
+// function getNoteId() {
+//       const urlParams = new URLSearchParams(window.location.search);
+//       let id = urlParams.get('id');
+//       if (!id) {
+//         id = Math.random().toString(36).substr(2, 8);
+//         window.history.replaceState({}, '', `?id=${id}`);
+//       }
+//       document.getElementById('noteId').textContent = id;
+//       return id;
+//     }
+
+// window.addEventListener('load', () => {
+//     const tabsContainer = document.getElementById('tabs-container');
+//     if (!tabsContainer) {
+//       console.error("Tabs container not found");
+//       return;
+//     }
+
+    // if (document.querySelectorAll('.tab-pane').length === 0) {
+    //   renderTabs([
+    //     { title: "Notes", content: "# Welcome\n\nStart writing your ideas here..." },
+    //     { title: "To-Do", content: "- [ ] Add tasks\n- [ ] Save progress" },
+    //     { title: "Ideas", content: "✨ New inspiration goes here" }
+    //   ]);
+    // }
