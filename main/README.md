@@ -1,4 +1,4 @@
-# perchance.org/perNotPad
+# perchance.org/perNotPad (Demo version.)
 
 This how the files are handled.
 
