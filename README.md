@@ -113,6 +113,7 @@ Note: Lacks encryption - data visible to anyone with the URL (like Secret Chat).
 
 ## ?Plugins? 
 > I don't know if I want to add these, but they're ideas.
+
 🧩 Extensions: Math equations, diagrams  
 🧩 Custom Themes: User CSS injection  
 
