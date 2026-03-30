@@ -52,5 +52,3 @@ This how the files are handled.
   - Public chat rooms  
   - Comment sections  
 - Floating Chat → Click any chat link to open draggable window  
-
-> Pro Tip: Use Markdown (# headers, - lists) for rich formatting  
