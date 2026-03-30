@@ -82,6 +82,8 @@ Note: Lacks encryption - data visible to anyone with the URL (like Secret Chat).
 
 
 # PerNotePad Future Improvements  
+- Improve server storage management.
+- Improve client to server connection for reduced data consumption.
 
 ## Sync Safety  
 🔹 Conflict Detection: Warn when remote changes exist  
