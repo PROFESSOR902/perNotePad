@@ -44,7 +44,7 @@ Note: Lacks encryption - data visible to anyone with the URL (like Secret Chat).
   - loadFromSupabase()
 - 🔔 Live subscription to remote changes
 
-# PerNotePad Preview Usage Guide
+# PerNotePad Usage Guide (Preview)
 
 > For a complete guide go to Mark [README](https://github.com/PROFESSOR902/perNotePad/tree/main/main) In the file that is named main. (Still under development.)
 
