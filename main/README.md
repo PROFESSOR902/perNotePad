@@ -1,64 +1,56 @@
-# perNotPad
+# perchance.org/perNotPad
 
-# perNotePad Documentation.
+This how the files are handled.
 
-## Core Features
-1. Multi-Tab Note Editor
-   - Dynamic tab system with persistent content
-   - Default tabs ("Notes", "To-Do") with Markdown-ready textareas
-   - Tab switching via button controls
+- `.html` file Is the piece of code that is in the bottom right of the window, In the code editor space of perchance.org.
+- `.perch` file Is the piece of code that is in the top left of the window, In the code editor space of perchance.org.
 
-2. Supabase Cloud Sync
-   - Real-time database integration
-   - Auto-generated 6-character note IDs
-   - Full CRUD operations:
-     - createNewNote() - Generates ID + updates URL
-     - saveToSupabase() - Upsert functionality
-     - loadFromSupabase() - Retrieves by ID
-   - Live subscription to updates via Postgres changes
+**This `.perch` is not the official file extension. I chose this for easy implementation and sorting.**
 
-3. Responsive UI Components
-   - Custom scrollbar styling (dark theme)
-   - Resizable textareas with monospace font
-   - Active/inactive tab visual indicators
+## PerNotePad Usage Guide  
 
-## Sidebar System
-- Toggleable Menu (☰ button controlled)
-- Chat Room Integration:
-  - Three pre-configured channels:
-    - Public Lobby
-    - Suggestions
-    - Random
-  - Floating chat windows (draggable)
-  - Comments plugin injection
+### Basic Workflow  
+1. Create/Open Note  
+   - Click 🆕 New Note → Generates URL like ?id=abc123  
+   - Bookmark/share this URL to access later  
 
-## Technical Highlights
-- Supabase Configuration:
-           
-javascript
-  const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+2. Editing  
+   - Default tabs:  
+     - Notes (Markdown supported)  
+     - To-Do (Checklist format)  
+   - Switch tabs via buttons  
 
-- State Management:
-  - URL params for note persistence (?id=abc123)
-  - DOM-based tab storage (no external state library)
+3. Sync  
+   - 💾 Save → Pushes changes to cloud  
+   - Changes auto-sync across devices using the same URL
+   - **PerNotePad Sync Behavior Explanation:**
+     - Last-Write-Wins: The most recent saveToSupabase() call completely overwrites previous data
+     - No Versioning: No backup history - edits are permanent once synced
+     - No Conflict Resolution: Simultaneous edits? Whoever saves last erases others' work
+     - Technical Why:  
+      javascript
+      ```
+      // Supabase upsert logic - brutally simple  
+      .upsert({ id, tabs }) // Full replacement, no merging  
+      ```
+      > This is the tradeoff for instant sync simplicity. (A placeholder feature would have to be implemented so that when there is simultaneous editing thay can be cued up correctly.)
 
-## Styling Features
-- Custom scrollbars (ghostwhite/royalblue)
-- Fixed header with powderblue background
-- Mobile-responsive viewport meta tag
-- Tab system with active/inactive states
+### Collaboration  
+- Share the URL → Edits appear live for all viewers  
+- No login required
 
-## Plugin Integration Points
-1. Comments/Chat Plugin:
-   - Dynamically loaded into floating window
-   - Channel parameterization
-2. Extensible Architecture:
-   - Tab system designed for additional content types
-   - Sidebar ready for new menu items
+### Keyboard Shortcuts  
+*(Not yet implemented - placeholder for future update)*  
 
-## Special Functions
-- subscribeToChanges() - Listens for remote updates
-- toggleDropdown() - Expandable sidebar sections
-- Drag-handle ready chat window (UI prepared but JS not implemented)
+### Troubleshooting  
+- 🔁 Load → Force-refreshes cloud data  
+- ID in URL missing? → Create new note  
+- Sync delay? → Check network connection  
 
-              
+### Other Features  
+- Sidebar (☰) → Access:  
+  - Public chat rooms  
+  - Comment sections  
+- Floating Chat → Click any chat link to open draggable window  
+
+> Pro Tip: Use Markdown (# headers, - lists) for rich formatting  
